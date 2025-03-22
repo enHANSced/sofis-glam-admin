@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { 
                 data: 'file',
                 render: function(data) {
-                    return `<img src="${data}" alt="Producto" style="width: 50px; height: 50px; object-fit: cover;">`;
+                    return `<div class="text-center"><img src="${data}" alt="Producto" class="producto-imagen" style="width: 50px; height: 50px; object-fit: cover;"></div>`;
                 }
             },
             { data: 'nombre' },
@@ -73,6 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Eventos
     document.getElementById('guardarProducto').addEventListener('click', guardarProducto);
     document.getElementById('productoModal').addEventListener('hidden.bs.modal', limpiarFormulario);
+    
+    // Evento para previsualizar la imagen seleccionada
+    document.getElementById('imagen').addEventListener('change', previsualizarImagen);
+    
+    // Evento delegado para ampliar imágenes al hacer clic
+    document.querySelector('#productosTable').addEventListener('click', function(e) {
+        if (e.target.classList.contains('producto-imagen')) {
+            ampliarImagen(e.target.src);
+        }
+    });
 });
 
 // Función para cargar productos
@@ -220,6 +230,27 @@ async function editarProducto(id) {
         document.getElementById('genero').value = producto.genero;
         document.getElementById('material').value = producto.material;
 
+        // Mostrar previsualización de la imagen existente
+        if (producto.file) {
+            const previewContainer = document.querySelector('.preview-container');
+            const previewPlaceholder = document.querySelector('.preview-placeholder');
+            
+            // Limpiar contenedor
+            if (previewContainer.querySelector('img')) {
+                previewContainer.querySelector('img').remove();
+            }
+            
+            // Ocultar placeholder
+            if (previewPlaceholder) {
+                previewPlaceholder.style.display = 'none';
+            }
+            
+            // Crear elemento de imagen
+            const img = document.createElement('img');
+            img.src = producto.file;
+            previewContainer.appendChild(img);
+        }
+
         // Cambiar título del modal
         document.getElementById('productoModalLabel').textContent = 'Editar Producto';
 
@@ -257,9 +288,28 @@ async function eliminarProducto(id) {
 
 // Función para limpiar formulario
 function limpiarFormulario() {
-    document.getElementById('productoForm').reset();
     document.getElementById('productoId').value = '';
+    document.getElementById('nombre').value = '';
+    document.getElementById('descripcion').value = '';
+    document.getElementById('precio').value = '';
+    document.getElementById('stock').value = '';
+    document.getElementById('categoria').value = '';
+    document.getElementById('imagen').value = '';
     document.getElementById('productoModalLabel').textContent = 'Nuevo Producto';
+    
+    // Resetear la previsualización de imagen
+    const previewContainer = document.querySelector('.preview-container');
+    const previewPlaceholder = document.querySelector('.preview-placeholder');
+    
+    // Limpiar contenedor
+    if (previewContainer.querySelector('img')) {
+        previewContainer.querySelector('img').remove();
+    }
+    
+    // Mostrar placeholder
+    if (previewPlaceholder) {
+        previewPlaceholder.style.display = 'block';
+    }
 }
 
 // Eventos de la tabla
@@ -271,4 +321,60 @@ $('#productosTable').on('click', '.editar-producto', function() {
 $('#productosTable').on('click', '.eliminar-producto', function() {
     const id = $(this).data('id');
     eliminarProducto(id);
-}); 
+});
+
+// Función para mostrar la previsualización de la imagen
+function previsualizarImagen(e) {
+    const previewContainer = document.querySelector('.preview-container');
+    const previewPlaceholder = document.querySelector('.preview-placeholder');
+    
+    // Limpiar contenedor
+    if (previewContainer.querySelector('img')) {
+        previewContainer.querySelector('img').remove();
+    }
+    
+    if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+            // Ocultar placeholder
+            if (previewPlaceholder) {
+                previewPlaceholder.style.display = 'none';
+            }
+            
+            // Crear elemento de imagen
+            const img = document.createElement('img');
+            img.src = event.target.result;
+            previewContainer.appendChild(img);
+        }
+        
+        reader.readAsDataURL(e.target.files[0]);
+    } else {
+        // Mostrar placeholder si no hay imagen
+        if (previewPlaceholder) {
+            previewPlaceholder.style.display = 'block';
+        }
+    }
+}
+
+// Función para ampliar imagen al hacer clic
+function ampliarImagen(src) {
+    // Crear contenedor para la imagen ampliada
+    const imagenAmpliada = document.createElement('div');
+    imagenAmpliada.className = 'imagen-ampliada';
+    
+    // Crear imagen
+    const img = document.createElement('img');
+    img.src = src;
+    
+    // Agregar al contenedor
+    imagenAmpliada.appendChild(img);
+    
+    // Agregar al body
+    document.body.appendChild(imagenAmpliada);
+    
+    // Cerrar al hacer clic
+    imagenAmpliada.addEventListener('click', function() {
+        document.body.removeChild(imagenAmpliada);
+    });
+} 

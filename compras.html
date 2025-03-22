@@ -25,6 +25,18 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="img/sofiglam-logo-icon.svg">
+
+    <!-- Custom styles for this page -->
+    <style>
+        #actualizarEstado:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        #actualizarEstado[disabled]:hover {
+            opacity: 0.6;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -313,7 +325,7 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">
                         <i class="fas fa-times fa-fw"></i> Cerrar
                     </button>
-                    <button class="btn btn-primary" type="button" id="actualizarEstado">
+                    <button class="btn btn-primary" type="button" id="actualizarEstado" style="opacity: 1; transition: opacity 0.3s;">
                         <i class="fas fa-sync fa-fw"></i> Actualizar Estado
                     </button>
                 </div>

@@ -216,6 +216,16 @@ async function verDetallesCompra(idCompra) {
             ${compra.notas ? `<p><strong>Notas:</strong> ${compra.notas}</p>` : ''}
         `;
 
+        // Controlar el estado del botón de actualizar
+        const btnActualizarEstado = document.getElementById('actualizarEstado');
+        if (compra.estado === 'Entregado' || compra.estado === 'Cancelado') {
+            btnActualizarEstado.disabled = true;
+            btnActualizarEstado.title = 'No se puede actualizar el estado de una compra que ya está ' + compra.estado.toLowerCase();
+        } else {
+            btnActualizarEstado.disabled = false;
+            btnActualizarEstado.title = 'Actualizar estado de la compra';
+        }
+
         // Actualizar tabla de detalles
         const detallesTable = document.getElementById('detallesTable').getElementsByTagName('tbody')[0];
         detallesTable.innerHTML = '';

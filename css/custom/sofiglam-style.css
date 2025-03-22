@@ -1,0 +1,252 @@
+/* Estilos personalizados para SofiGlam Admin */
+
+/* Variables de colores */
+:root {
+  --sofiglam-gold: #d4af37;
+  --sofiglam-dark-gold: #b8860b;
+  --sofiglam-light-gold: #f5d76e;
+  --sofiglam-black: #1a1a1a;
+  --sofiglam-gray: #4e4e4e;
+  --sofiglam-light-gray: #f8f9fc;
+  --sofiglam-white: #ffffff;
+}
+
+/* Estilos globales */
+body {
+  font-family: 'Montserrat', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--sofiglam-gray);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-weight: 600;
+  color: var(--sofiglam-black);
+}
+
+/* Sobrescribir colores primarios */
+.bg-primary {
+  background-color: var(--sofiglam-gold) !important;
+}
+
+.text-primary {
+  color: var(--sofiglam-gold) !important;
+}
+
+.btn-primary {
+  background-color: var(--sofiglam-gold);
+  border-color: var(--sofiglam-gold);
+}
+
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active {
+  background-color: var(--sofiglam-dark-gold) !important;
+  border-color: var(--sofiglam-dark-gold) !important;
+}
+
+/* Modificar sidebar */
+.bg-gradient-primary {
+  background-color: var(--sofiglam-black);
+  background-image: none;
+}
+
+.sidebar-dark .nav-item .nav-link {
+  color: var(--sofiglam-light-gray);
+}
+
+.sidebar-dark .nav-item .nav-link:hover {
+  color: var(--sofiglam-gold);
+}
+
+.sidebar-dark .nav-item.active .nav-link {
+  color: var(--sofiglam-gold);
+}
+
+.sidebar-dark .sidebar-heading {
+  color: var(--sofiglam-light-gold);
+}
+
+/* Modificar topbar */
+.topbar {
+  background-color: var(--sofiglam-white);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Logo en sidebar */
+.sidebar-brand-icon img {
+  max-height: 40px;
+}
+
+.sidebar-brand-text {
+  font-family: 'Playfair Display', serif;
+  color: var(--sofiglam-gold) !important;
+  text-transform: none !important;
+  font-size: 1.2rem;
+}
+
+/* Modificar cards */
+.card {
+  border: none;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  border-radius: 0.5rem;
+}
+
+.card-header {
+  background-color: var(--sofiglam-white);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+}
+
+/* Modificar botones */
+.btn {
+  border-radius: 0.3rem;
+}
+
+.btn-info {
+  background-color: var(--sofiglam-gold);
+  border-color: var(--sofiglam-gold);
+  color: var(--sofiglam-black);
+}
+
+.btn-info:hover {
+  background-color: var(--sofiglam-dark-gold);
+  border-color: var(--sofiglam-dark-gold);
+  color: var(--sofiglam-black);
+}
+
+/* Modificar badges */
+.badge {
+  font-weight: 500;
+  padding: 0.4em 0.6em;
+  border-radius: 0.25rem;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+/* Estilo para la tabla */
+.table {
+  color: var(--sofiglam-gray);
+}
+
+.table thead th {
+  background-color: var(--sofiglam-light-gray);
+  color: var(--sofiglam-black);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+/* Personalización de DataTables */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--sofiglam-gold) !important;
+  border-color: var(--sofiglam-gold) !important;
+  color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: var(--sofiglam-light-gold) !important;
+  border-color: var(--sofiglam-light-gold) !important;
+  color: var(--sofiglam-black) !important;
+}
+
+.dataTables_info {
+  color: var(--sofiglam-gray) !important;
+}
+
+/* Modal personalizado */
+.modal-header {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background-color: var(--sofiglam-white);
+}
+
+.modal-title {
+  color: var(--sofiglam-black);
+  font-weight: 600;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Estilo para inputs */
+.form-control {
+  border-radius: 0.3rem;
+}
+
+.form-control:focus {
+  border-color: var(--sofiglam-gold);
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+/* Filtros de compras */
+#filtrosCard {
+  border-left: 4px solid var(--sofiglam-gold);
+}
+
+/* Detalles de compra */
+#detallesCompraModal .card {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#detallesCompraModal .card-header {
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+#detallesTable thead th {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Estilos para iconos */
+.fa-fw {
+  color: var(--sofiglam-gold);
+}
+
+.sidebar .nav-item .nav-link i {
+  color: var(--sofiglam-gold);
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+
+/* Estilos de hover para acciones en tablas */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.table .btn {
+  transition: all 0.3s ease;
+}
+
+.table .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer personalizado */
+.sticky-footer {
+  background-color: var(--sofiglam-white);
+  color: var(--sofiglam-gray);
+}
+
+.copyright {
+  font-size: 0.8rem;
+} 

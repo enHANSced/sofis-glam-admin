@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .ring {
+      fill: none;
+      stroke: #d4af37;
+      stroke-width: 5;
+    }
+    .diamond {
+      fill: #d4af37;
+    }
+  </style>
+  <circle class="ring" cx="50" cy="55" r="25"/>
+  <path class="diamond" d="M50 10 L60 25 L50 40 L40 25 Z"/>
+</svg> 

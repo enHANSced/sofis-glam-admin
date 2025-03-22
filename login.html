@@ -1,28 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Panel de administración de Sofi's Glam">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Sofi's Glam - Login</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="css/custom/sofiglam-style.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/sofiglam-logo-icon.svg">
+    
+    <style>
+        .bg-login-image {
+            background: url('img/sofiglam-logo-icon.svg');
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-color: var(--sofiglam-black);
+        }
+        
+        .form-control {
+            border-radius: 0.3rem;
+        }
+        
+        .btn-login {
+            background-color: var(--sofiglam-gold);
+            border-color: var(--sofiglam-gold);
+            color: var(--sofiglam-black);
+            font-weight: 600;
+            border-radius: 0.3rem;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn-login:hover {
+            background-color: var(--sofiglam-dark-gold);
+            border-color: var(--sofiglam-dark-gold);
+            color: var(--sofiglam-black);
+        }
+        
+        .login-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--sofiglam-black);
+            margin-bottom: 2rem;
+        }
+        
+        .login-card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-light">
 
     <div class="container">
 
@@ -31,7 +75,7 @@
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card o-hidden border-0 shadow-lg my-5 login-card">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
@@ -39,42 +83,25 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 login-heading">Bienvenido a Sofi's Glam</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" id="loginForm">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="usuario" aria-describedby="emailHelp"
+                                                placeholder="Usuario">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="clave" placeholder="Contraseña">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <button type="submit" class="btn btn-block btn-login">
+                                            Iniciar Sesión
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small text-primary" href="#">¿Olvidaste tu contraseña?</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,6 +124,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Login script -->
+    <script src="js/login.js"></script>
 
 </body>
 
